@@ -1,0 +1,676 @@
+<!-- 
+	@info The differents between javascript and JQuery
+	@author Harry
+	@time 2010/07/12
+-->
+<html>
+	<head>
+		<title>Javascript and JQuery</title>
+		<style>
+			fieldset{
+				margin:15px;
+				padding:5px;
+				border-color:green;
+			}
+			legend{
+				border:1px solid black;
+				padding:4px;
+				background-color:green;
+				color:white;
+			}
+			table{
+				margin:5px;
+				width:100%;
+				border:1px solid green;
+				border-collapse:collapse;
+			}
+			th,td{
+				border:1px solid green;
+				text-align:left;
+				padding:4px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Diversity Between Javascript and JQuery -->
+		<fieldset>
+			<legend>Diversity Between Javascript and jQuery</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "20%">&nbsp;</th>
+					<th scope = "col">Javascript</th>
+					<th scope = "col">jQuery</th>
+				</tr>
+				<tr>
+					<td colspan = "3">Get Element(s):</td>
+				</tr>
+				<tr>
+					<th scope = "row">By Tag Name</th>
+					<td>document.getElementsByTagName("tagName")</td>
+					<td>$("tagName")</td>
+				</tr>
+				<tr>
+					<th scope = "row">By Name</th>
+					<td>document.getElementsByName("name")</td>
+					<td>$("[name=nameValue]")</td>
+				</tr>
+				<tr>
+					<th scope = "row">By Id</th>
+					<td>document.getElementById("idValue")</td>
+					<td>$("#idValue")</td>
+				</tr>
+				<tr>
+					<td colspan = "3">Get and set element's attributes:(Get element by id)</td>
+				</tr>
+				<tr>
+					<th scope = "row">Get Attribute</th>
+					<td>document.getElementById("idValue").getAttribute("attrName")</td>
+					<td>$("#idValue").attr("attrName")</td>
+				</tr>
+				<tr>
+					<th scope = "row">Set Attribute</th>
+					<td>document.getElementById("idValue").setAttribute("attrName", "attrValue")</td>
+					<td>$("#idValue").attr("attrName", "attrValue")</td>
+				</tr>
+				<tr>
+					<td colspan = "3">Get and set element's value:(Get element by id, form's element)</td>
+				</tr>
+				<tr>
+					<th scope = "row">Get Value</th>
+					<td>document.getElementById("idValue").value</td>
+					<td>$("#idValue").val()</td>
+				</tr>
+				<tr>
+					<th scope = "row">Set Value</th>
+					<td>document.getElementById("idValue").value = "newValue";</td>
+					<td>$("#idValue").val("newValue")</td>
+				</tr>
+			</table>
+		</fieldset>
+		<!-- JQuery Selector -->
+		<fieldset>
+			<legend>jQuery Selector</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "15%">Selector Class</th>
+					<th scope = "col" width = "20%">Selector</th>
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row" rowspan = "6">Attribute Selector</th>
+					<td>$("a")</td>
+					<td>All "a" elements</td>
+				</tr>
+				<tr>					
+					<td>$("a[title]")</td>
+					<td>All "a" elements which has "title" attribute</td>
+				</tr>
+				<tr>					
+					<td>$("a[href=test.html]")</td>
+					<td>The "a" element whose "href" attribute's value is "test.html"</td>
+				</tr>
+				<tr>					
+					<td>$("a[href^=http]")</td>
+					<td>All "a" elements which "href" begin with "http"</td>
+				</tr>
+				<tr>					
+					<td>$("a[href$=html]")</td>
+					<td>All "a" elements which "href" end with "html"</td>
+				</tr>
+				<tr>
+					<td>$("a[href*=acre]")</td>
+					<td>All "a" elements which "href" contains "acre"</td>
+				</tr>
+
+				<tr>
+					<th scope = "row" rowspan = "14">Container Selector</th>
+					<td>*</td>
+					<td>All elements</td>
+				</tr>
+				<tr>					
+					<td>E</td>
+					<td>All "E" elements</td>
+				</tr>
+				<tr>					
+					<td>E F</td>
+					<td>All "F" elements, and "E" is "F" 's parent node,contains all childNodes</td>
+				</tr>
+				<tr>					
+					<td>E &gt; F</td>
+					<td>All "F" elements, and "E" is "F" 's parent node,don't contain any childNodes</td>
+				</tr>
+				<tr>					
+					<td>E + F</td>
+					<td>All "F" elements, and "F" following the "E" element</td>
+				</tr>
+				<tr>
+					<td>E ~ F</td>
+					<td>All "F" elements, and before "F" there is one "E" element</td>
+				</tr>
+				<tr>					
+					<td>E:has(F)</td>
+					<td>All "E" elements, whick contain "F" elements</td>
+				</tr>
+				<tr>					
+					<td>E.C</td>
+					<td>All "E" elements, which class name is "C"</td>
+				</tr>
+				<tr>					
+					<td>E#I</td>
+					<td>All "E" elements, which id is "I"</td>
+				</tr>
+				<tr>					
+					<td>E[A]</td>
+					<td>All "E" elements, which has "A" attribute</td>
+				</tr>
+				<tr>
+					<td>E[A=V]</td>
+					<td>All "E" elements, which "A" attribute is "V"</td>
+				</tr>
+				<tr>					
+					<td>E[A^=V]</td>
+					<td>All "E" elements, which "A" attribute begins with "V"</td>
+				</tr>
+				<tr>					
+					<td>E[A$=V]</td>
+					<td>All "E" elements, which "A" attribute ends with "V"</td>
+				</tr>
+				<tr>					
+					<td>E[A*=V]</td>
+					<td>All "E" elements, which "A" attribute contains "V"</td>
+				</tr>
+
+				<tr>
+					<th scope = "row" rowspan = "12">Position Selector</th>
+					<td>:first</td>
+					<td>The first element, Example:($("p:first"):the first p element, $("div p:first"))the first p element, and the p is the div's child element</td>
+				</tr>
+				<tr>					
+					<td>:last</td>
+					<td>The last element, Example:($("p:last"):the last p element, $("div p:last"))the last p element, and the p is the div's child element</td>
+				</tr>
+				<tr>					
+					<td>:first-child</td>
+					<td>The first element, Example:($("p:first-child"):the first p element, and the p is its parent element's first child element</td>
+				</tr>
+				<tr>					
+					<td>:last-child</td>
+					<td>The last element, Example:($("p:last-child"):the last p element, and the p is its parent element's last child element</td>
+				</tr>
+				<tr>					
+					<td>:only-child</td>
+					<td>The only element, Example:($("p:only-child"):the only p element, means its parent has only one child element</td>
+				</tr>
+				<tr>					
+					<td>:nth-child(N)</td>
+					<td>The Nth element, index begins with 1</td>
+				</tr>
+				<tr>
+					<td>:nth-child(odd|even)</td>
+					<td>The odd or even elements</td>
+				</tr>
+				<tr>					
+					<td>:nth-child(nX + Y)</td>
+					<td>The (nX + Y)th element, n begin with 0</td>
+				</tr>
+				<tr>					
+					<td>:odd or :even</td>
+					<td>The odd or even elements for the whole page</td>
+				</tr>
+				<tr>					
+					<td>:eq(n)</td>
+					<td>The nth element , begin with 0</td>
+				</tr>
+				<tr>					
+					<td>:gt(n)</td>
+					<td>All elements after the nth element</td>
+				</tr>
+				<tr>
+					<td>:lt(n)</td>
+					<td>All elements before the nth element</td>
+				</tr>
+				
+				<tr>
+					<th scope = "row" rowspan = "20">Filter Selector</th>
+					<td>:animated</td>
+					<td>All elements in animated</td>
+				</tr>
+				<tr>
+					<td>:button</td>
+					<td>All the button elements: &lt;input type = "button" /&gt; and &lt;button&gt;&lt;/button&gt; tag</td>
+				</tr>
+				<tr>
+					<td>:checkbox</td>
+					<td>All checkbox elements &lt;inupt type = "checkbox"/&gt; tag</td>
+				</tr>
+				<tr>
+					<td>:contains(foo)</td>
+					<td>All elements which contains "foo" text content</td>
+				</tr>
+				<tr>
+					<td>:disabled</td>
+					<td>All disabled elements</td>
+				</tr>
+				<tr>
+					<td>:enabled</td>
+					<td>All enabled elements</td>
+				</tr>
+				<tr>
+					<td>:file</td>
+					<td>The file element &lt;input type = "file"/&gt;</td>
+				</tr>
+				<tr>
+					<td>:header</td>
+					<td>All header elements &lt;h1&gt; ~ &lt;h6&gt;</td>
+				</tr>
+				<tr>
+					<td>:hidden</td>
+					<td>All hidden elements</td>
+				</tr>
+				<tr>
+					<td>:image</td>
+					<td>The image submit element &lt;input type = "image" src = "imageurl"/&gt;</td>
+				</tr>
+				<tr>
+					<td>:input</td>
+					<td>All input elements</td>
+				</tr>
+				<tr>
+					<td>:not(filter)</td>
+					<td>All elements except filter elements</td>
+				</tr>
+				<tr>
+					<td>:parent</td>
+					<td>All elements which has child elements</td>
+				</tr>
+				<tr>
+					<td>:password</td>
+					<td>The password element &lt;input type = "password"/&gt;</td>
+				</tr>
+				<tr>
+					<td>:radio</td>
+					<td>The radio elements &lt;input type = "radio" /&gt;</td>
+				</tr>
+				<tr>
+					<td>:reset</td>
+					<td>The radio element &lt;input type = "reset" /&gt;</td>
+				</tr>
+				<tr>
+					<td>:selected</td>
+					<td>The select elements &lt;select&gt;&lt;/select&gt;</td>
+				</tr>
+				<tr>
+					<td>:submit</td>
+					<td>The submit element &lt;input type = "submit" /&gt;</td>
+				</tr>
+				<tr>
+					<td>:text</td>
+					<td>The text element &lt;input type = "text" /&gt;</td>
+				</tr>
+				<tr>
+					<td>:visible</td>
+					<td>All visible elements</td>
+				</tr>				
+			</table>
+		</fieldset>
+		<!-- Manage the selected result -->		
+		<fieldset>
+			<legend>Manage The Selected Result</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "30%">Method</th>			
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row">size()</th>		
+					<td>The quantity of selected elements,Example:$("div").size()</td>
+				</tr>
+				<tr>
+					<th scope = "row">get(index)</th>	
+					<td>Get the element from the selected elements.Example:$("div").get(2) or $("div")[2]</td>
+				</tr>
+				<tr>
+					<th scope = "row">add()</th>	
+					<td>Add more element to the selected result.Example:$("img[alt]").add("img[title]") equals $("img[alt],img[title]")</td>
+				</tr>
+				<tr>
+					<th scope = "row">not()</th>	
+					<td>Remove some elements from the selected result.Example:$("img[title]").not("[title*=osaac]")</td>
+				</tr>
+				<tr>
+					<th scope = "row">filter()</th>	
+					<td>Filter the selected result, it can be used in two ways.Example:(1).Using like "not()" method:$("img[title]").filter("title*=osaac")),$("div").addClass("cs1").filter("[class*=middle]").addClass("cs2");(2)Use function as parameter:$("div").addClass("cs1").filter(funtion(index){
+						return index == 1 || $(this).attr("id") == "fourth"
+					}).addClass("cs2")</td>
+				</tr>
+				<tr>
+					<th scope = "row">find()</th>	
+					<td>Get elements from the selected result.Example:$("p").find("span") --- Get the spans which in the p tag</td>
+				</tr>
+				<tr>
+					<th scope = "row">is()</th>	
+					<td>Whether one element has another element .Example:$("p").is("img") --- Whether p tag has img tag</td>
+				</tr>
+				<tr>
+					<th scope = "row">end()</th>	
+					<td>Operate the last object.Example:$("p").find("span").addClass("cs1").end().addClass("cs2"),Result : set the span's class cs1, p's class cs2</td>
+				</tr>
+				<tr>
+					<th scope = "row">andSelf()</th>	
+					<td>Opetate all elements.Example:$("div").find("p").addClass("cs1").andSelf().addClass("cs2").Result:p's class cs1 and cs2 , div's class cs2</td>
+				</tr>
+				<tr>
+					<th scope = "row">each()</th>	
+					<td>Iterator each element .Example:$("div").each(function(){...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">attr(name)</th>	
+					<td>Get attribute value .Example:$("div").attr("id")</td>
+				</tr>
+				<tr>
+					<th scope = "row">attr(name,value/fn)</th>	
+					<td>Set attribute value .Example:$("div").attr("id","002"),$("div").attr("name",function(){...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">removeAttr(name)</th>	
+					<td>Set attribute value the the default value.Example:$("div").removeAttr("disabled")</td>
+				</tr>
+				<tr>
+					<th scope = "row">addClass(classList)</th>	
+					<td>Add CSS style(one or more styles, split with space).Example:$("div").addClass(css1 css2 css3 ...)</td>
+				</tr>
+				<tr>
+					<th scope = "row">removeClass(classList)</th>	
+					<td>Remove CSS style(one or more styles, split with space).Example:$("div").removeClass(css1 css2 css3 ...)</td>
+				</tr>
+				<tr>
+					<th scope = "row">toggleClass(class)</th>	
+					<td>Dynamic change CSS style.Example:$("div").toggleClass(css)</td>
+				</tr>
+				<tr>
+					<th scope = "row">css(name)</th>	
+					<td>Get one CSS property value .Example:$("div").css("width")</td>
+				</tr>
+				<tr>
+					<th scope = "row">css(name,value)</th>	
+					<td>Set one CSS property value .Example:$("div").css("width", "200")</td>
+				</tr>
+				<tr>
+					<th scope = "row">css(properties)</th>	
+					<td>Set one CSS property value .Example:$("div").css({name1:value1,name2:value2,...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">html()</th>	
+					<td>Get html value .Example:$("div").html()</td>
+				</tr>
+				<tr>
+					<th scope = "row">text()</th>	
+					<td>Get text value .Example:$("div").text()</td>
+				</tr>
+				<tr>
+					<th scope = "row">html(htmlValue)</th>	
+					<td>Set html value .Example:$("div").html("&lt;p&gt;html value&lt;/p&gt;")</td>
+				</tr>
+				<tr>
+					<th scope = "row">text(textValue)</th>	
+					<td>Set text value .Example:$("div").text("text value")</td>
+				</tr>
+				<tr>
+					<th scope = "row">append(node)</th>	
+					<td>Add new child node .Example:$("div").append($("&lt;p&gt;new node&lt;/p&gt;"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">appendTo(target)</th>	
+					<td>Add node to the target node .Example:$("img:eq(0)").appendTo($("div:eq(0)"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">prepend(target) / prependTo(target)</th>	
+					<td>Add node to the target node as the target node's first child node .Example:$("img:eq(0)").prepend($("div:eq(0)"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">before(target) / insertBefore(target)</th>	
+					<td>Add node before the target node(not as child node,the target is the first node) .Example:$("img:eq(0)").before($("div:eq(0)"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">after(target) / insertAfter(target)</th>	
+					<td>Add node after the target node(not as child node,target is the first node) .Example:$("img:eq(0)").after($("div:eq(0)"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">remove()</th>	
+					<td>Remove the node  .Example:$("img:eq(0)").remove()</td>
+				</tr>
+				<tr>
+					<th scope = "row">empty()</th>	
+					<td>Remove all the child nodes  .Example:$("img:eq(0)").empty()</td>
+				</tr>
+				<tr>
+					<th scope = "row">clone()</th>	
+					<td>Clone the node.Example:$("img:eq(0)").clone().appendTo($("p:eq(0)"))</td>
+				</tr>
+				<tr>
+					<th scope = "row">val()</th>	
+					<td>Get form element's value .Example:$("#uname").val()</td>
+				</tr>
+				<tr>
+					<th scope = "row">val(value)</th>	
+					<td>Set form element's value.Example:$("#uname").val("Harry")</td>
+				</tr>
+			</table>
+		</fieldset>
+		<!-- jQuerty Event -->
+		<fieldset>
+			<legend>jQuerty Event</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "30%">Method</th>			
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row">bind(eventType,[data],Listener)</th>		
+					<td>Bind action listener to the event type.Example:$("button:eq(0)").bind("click", function(){...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">one(eventType, listener)</th>	
+					<td>Bind action listener to the event type, but it only works once.Example:$("button:eq(0)").one("click", function(){...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">unbind([eventType],[fnName])</th>	
+					<td>Unbind action listener of the event type.Example:(1),$("button:eq(0)").unbind();(2),$("button:eq(0)").unbind("click");(3),$("button:eq(0)").unbind("click", fnName)</td>
+				</tr>
+				<tr>
+					<th scope = "row">trigger(eventType)</th>	
+					<td>Trigger action listener of the event type.Example:$("button:eq(0)").trigger("click")</td>
+				</tr>
+				<tr>
+					<th scope = "row">toggle(fn1, fn2)</th>	
+					<td>Toggle action listener,only for click action .Example:$("button:eq(0)").toggle(function(){...},function(){...})</td>
+				</tr>
+				<tr>
+					<th scope = "row">hover(fn1, fn2)</th>	
+					<td>Toggle action listener,for mouse over action .Example:$("button:eq(0)").hover(function(){...},function(){...})</td>
+				</tr>
+			</table>
+		</fieldset>
+		<!-- jQuerty Event Type List-->
+		<fieldset>
+			<legend>jQuerty Event Type List</legend>
+			<table>
+				<tr>
+					<td>
+						blur,focus,load,resize,scroll,unload,click,dblclick,mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave,change,<br/>select,submit,keydown,keypress,keyup,error
+					</td>
+				</tr>
+			</table>			
+		</fieldset>
+		<!-- jQuerty Function -->
+		<fieldset>
+			<legend>jQuerty Functions</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "30%">Function/Object</th>			
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row">$.browser</th>		
+					<td>The object has five properties,(msie(ie explorer)¡Bmozilla(mozilla explorer)¡Bsafari(safari explorer)¡Bopera(opera explorer)¡Bversion(explorer version)).Example:$.browser.msie if your explorer is ie it will return true.Get the explorer version:$.browser.version</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.each(obj, fn)</th>	
+					<td>Iterator the JavaScript object.Example:var array = [1,2,3,4,5];$.each(array,function(index, value){document.write("Index" + index + "value" + value)}); var obj = {one:1,two:2,three:3,four:4,five:5};$.each(obj,function(property, value){document.write("property" + property + "value" + value)});</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.grep(array, fn, [invert])</th>	
+					<td>Filter the array's elements,return a new array.Example:var array = [1,2,3,4,5,6,7];var result1 = $.grep(array, function(value){return value > 3})(result1 :[4,5,6,7]),var result2 = $.grep(array, fuction(value){return value > 3},<font color = "red">true</font>)(result2:[1,2,3]),var result3 = $.grep(array, function(value, index){return value <= 3 && index > 1})(result3:[2,3])</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.map(array, fn)</th>	
+					<td>Invert the array's elements,return a new array,the new array's length maybe not the same with the old array.Example:var array = ['a', 'b', 'c', 'd']; var newarray = $.map(array, function(value){return value.toUpperCase()})(newarray:['A', 'B', 'C', 'D']);</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.inArray(value, array)</th>	
+					<td>Search element in the array.Example:var array = [1,3,5,7,9], var result1 = $.inArray(5, array), result2 = $.inArray(4, array);(result1:2,result2:-1)</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.getScript(url, [callback])</th>	
+					<td>Import the out side JavaScript code.</td>
+				</tr>
+			</table>
+		</fieldset>
+		<!-- jQuerty Ajax -->
+		<fieldset>
+			<legend>jQuerty & Ajax</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "30%">Function</th>			
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row">load(url)</th>		
+					<td>Get the Ajax result directly.Example:$("#target").load("ajax.jsp");</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.get(url,[data],[callback])</th>	
+					<td>Send Ajax request in "GET" way.Example:$.get("ajax.jsp","user=harry&pwd=3212",function(data){$("#target").html(data)})</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.post(url,[data],[callback],[type])</th>	
+					<td>Send Ajax request in "POST" way.Example:$.post("ajax.jsp","user=harry&pwd=3212",function(data){$("#target").html(data)})</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.ajax(options)</th>	
+					<td>Comparing with the three methods before, this method is more flexible.The options
+					<table>
+						<tr>
+							<td>async</td>
+							<td>boolean</td>
+						</tr>
+						<tr>
+							<td>beforeSend</td>
+							<td>function</td>
+						</tr>
+						<tr>
+							<td>cache</td>
+							<td>boolean</td>
+						</tr>
+						<tr>
+							<td>complete</td>
+							<td>function</td>
+						</tr>
+						<tr>
+							<td>contentType</td>
+							<td>string</td>
+						</tr>
+						<tr>
+							<td>data</td>
+							<td>string/object.Remark:If the parameter's value is chinese,there will be some differents between using string and object as the data's value.If you use string as the data's value, you should use encodeURI() for two times,but if you use object,you should use encodeURI() for only one time.So I think using object as the parameter value would be better.</td>
+						</tr>
+						<tr>
+							<td>dataType</td>
+							<td>string(html,xml,json,text,script).Default value:responseText/responseXML</td>
+						</tr>
+						<tr>
+							<td>error</td>
+							<td>function</td>
+						</tr>
+						<tr>
+							<td>global</td>
+							<td>boolean</td>
+						</tr>
+						<tr>
+							<td>ifModified</td>
+							<td>boolean</td>
+						</tr>
+						<tr>
+							<td>password</td>
+							<td>string</td>
+						</tr>
+						<tr>
+							<td>processData</td>
+							<td>boolean</td>
+						</tr>
+						<tr>
+							<td>success</td>
+							<td>function</td>
+						</tr>
+						<tr>
+							<td>timeout</td>
+							<td>int</td>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td>string(GET/POST)</td>
+						</tr>
+						<tr>
+							<td>url</td>
+							<td>string</td>
+						</tr><tr>
+							<td>username</td>
+							<td>string</td>
+						</tr>
+					</table>
+					Example:$.ajax({<br/>
+						type:"POST",<br/>
+						url:"ajaxResponse.jsp",<br/>
+						data:createQuery(),<br/>
+						success:function(data){
+							$("#ub").html(decodeURI(data));
+							alert("The request is successful!");
+						},<br/>
+						beforeSend:function(){
+							alert("Get the user's information!");
+						},<br/>
+						complete:function(){
+							alert("The request has been finished!");
+						},<br/>
+						error:function(){
+							alert("The request is unsuccessful!");
+						}<br/>
+					});
+					</td>
+				</tr>
+				<tr>
+					<th scope = "row">$.ajaxSetup(options)</th>	
+					<td>The global setup for the Ajax.</td>
+				</tr>
+			</table>
+		</fieldset>
+		<!-- jQuerty Position -->
+		<fieldset>
+			<legend>jQuerty Position</legend>
+			<table>
+				<tr>
+					<th scope = "col" width = "30%">Function</th>			
+					<th scope = "col">Remark</th>
+				</tr>
+				<tr>
+					<th scope = "row">$("#id").offset()</th>		
+					<td>var obj = $("#id").offset();top:obj.top;left:obj.left</td>
+				</tr>	
+				<tr>
+					<th scope = "row">$("#id").position()</th>		
+					<td>var obj = $("#id").position();top:obj.top;left:obj.left</td>
+				</tr>	
+			</table>
+		</fieldset>
+	</body>
+</html>
